@@ -1,0 +1,20 @@
+button{
+	background-color: #none;
+	border: 0.5px solid white;
+}
+#C {
+	background-color: #7CEA6D;
+	height: 30px;
+	width: 50px;
+}
+#exec {
+	background-color: #A9A5A5;
+}
+.row button{
+	width: 50px;
+	height: 30px;
+}
+#answer {
+	width: 150px;
+	height: 30px;
+}

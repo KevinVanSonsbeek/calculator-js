@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Calculator</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body onload="clearVariables()">
+	<button id="C" onclick="clearVariables()">C</button>
+	<button id="answer"></button>
+	<button id="displayHistory"></button> 
+	<div class="row">
+		<button id="7" onclick="firstDigit(7)">7</button>
+		<button id="8" onclick="firstDigit(8)">8</button>
+		<button id="9" onclick="firstDigit(9)">9</button>
+		<button id="plus" onclick="setOperator('+')">+</button>
+	</div>
+	<div class="row">
+		<button id="4" onclick="firstDigit(4)">4</button>
+		<button id="5" onclick="firstDigit(5)">5</button>
+		<button id="6" onclick="firstDigit(6)">6</button>
+		<button id="minus" onclick="setOperator('-')">-</button>
+	</div>
+	<div class="row">
+		<button id="1" onclick="firstDigit(1)">1</button>
+		<button id="2" onclick="firstDigit(2)">2</button>
+		<button id="3" onclick="firstDigit(3)">3</button>
+		<button id="divide" onclick="setOperator('/')">&divide;</button>
+	</div>
+	<div class="row">
+		<button id="0" onclick="firstDigit(0)">0</button>
+		<button id="dot" onclick="dot()">.</button>
+		<button id="exec" onclick="makeCalculation()">=</button>
+		<button id="multiply" onclick="setOperator('*')">x</button>
+	</div>
+	<button onclick="showVariables()">Variables</button>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
