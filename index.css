@@ -1,20 +1,59 @@
 button{
-	background-color: #none;
-	border: 0.5px solid white;
+	background-color: rgb( 255, 255, 255);
+	border-radius: 3px;
+	margin-left: : 13.5px;
+	margin-right: 3.5px;
+	margin-bottom: 3.5px;
+	margin-top: 13.5px;
 }
 #C {
-	background-color: #7CEA6D;
-	height: 30px;
-	width: 50px;
+	background-color: rgb( 255, 0, 0);
+	color: white;
+	border-bottom: 4px solid rgb( 198, 6, 6);
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	width: 66px;
+	height: 36px;
+	position: relative;
+	left: 13.5px;
 }
 #exec {
-	background-color: #A9A5A5;
+	background-color: rgb( 198, 206, 158);
+	border-bottom: 4px solid rgb( 137, 146, 94);
+	border-left: none;
+	border-right: none;
+	border-top: none;
 }
 .row button{
-	width: 50px;
-	height: 30px;
+	width: 66px;
+	height: 36px;
+	border-bottom: 4px solid rgb( 162, 60, 86);
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	margin: 3.5px;
 }
 #answer {
-	width: 150px;
-	height: 30px;
+	width: 212px;
+	height: 36px;
+	background-color: rgb( 174, 54, 78);
+	color: white;
+	border-top: 4px solid rgb( 139, 43,62);
+	border-right: none;
+	border-left: none;
+	border-bottom: none;
+	position: relative;
+	top: 4px;
+	left: 20.5px;
+}
+#Calculator{
+	background-color: rgb( 217, 67, 98);
+	width: 325px;
+	height: 270px;
+	border-radius: 5px;
+	border-bottom: 4px solid rgb( 162, 60, 86);
+}
+#buttons {
+	margin: 10px;
 }

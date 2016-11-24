@@ -1,67 +1,117 @@
-function get(id){
-	return document.getElementById(id);
-}
-// Variables
-var variables = {
+// Variables used in Calculator
+
+var variabelen = {
 	firstDigit: 0,
 	secondDigit: 0,
 	operator: 0,
-	answer: "",
-	displayhistory: 0
-}	//Object
-console.log(variables);
-//Changing the Operators: * + - /
-function setOperator(operator){
-	variables.operator = operator;
-	console.log(variables.operator);
+	answer: 0,
+	dot: false,
+	calcHistory: ""
 }
-//Input of the numbers, Before and after operator
-function firstDigit(digit){
-	if (variables.operator == 0){
-		variables.firstDigit =  variables.firstDigit + digit;
-	console.log(variables.firstDigit);
-	} else if(variables.operator != 0){
-		variables.secondDigit = variables.secondDigit + digit;
-		console.log(variables.secondDigit);
-	}
+	//Shortening the document.get
+
+function get(id){
+	return document.getElementById(id);
 }
-//Adding a dot to the number, for decimals
-function dot(){
-	if (variables.operator == 0) {
-		variables.firstDigit = variables.firstDigit + ".";
-	} else {
-		variables.secondDigit = variables.secondDigit + ".";
-	}
-}
-// Clearing the Calculator
+	//Clear complete Calculator!
+
 function clearVariables(){
-	variables.firstDigit = 0; 
-	variables.secondDigit = 0;
-	variables.operator = 0;
-	variables.answer = "";
-	console.log("Calculator cleared!");
+	variabelen.firstDigit = "";
+	variabelen.secondDigit = "";
+	variabelen.operator = "";
+	variabelen.answer = "";
+	variabelen.calcHistory = "";
+	variabelen.dot = false;
 	get('answer').innerHTML = "0";
+	console.log('Calculator cleared!');
 }
-//Make calculations according to Operator
-function makeCalculation(){
-	if(variables.operator == "+") {
-		variables.answer = ((variables.firstDigit *10)/10) + ((variables.secondDigit *10)/10);
-	} else if(variables.operator == "-" ){ 
-		variables.answer = ((variables.firstDigit*10)/10) - ((variables.secondDigit*10)/10);
-	} else if(variables.operator == "/"){
-		variables.answer = ((variables.firstDigit*10)/10) / ((variables.secondDigit*10)/10);
-	} else if(variables.operator == "*"){
-		variables.answer = ((variables.firstDigit*10)/10) * ((variables.secondDigit*10)/10);
+	//Adding input numbers
+
+function digits(digit){
+	if(variabelen.operator ==0){
+		if(variabelen.firstDigit == ""){
+			variabelen.firstDigit = digit;
+		}	else{
+			variabelen.firstDigit= variabelen.firstDigit + digit;
+		}
+		console.log(variabelen.firstDigit);
+		variabelen.calcHistory = variabelen.firstDigit;
+		get('answer').innerHTML = variabelen.calcHistory;
+	}	else{
+		if(variabelen.secondDigit == ""){
+			variabelen.secondDigit = digit;
+		}	else{
+			variabelen.secondDigit = variabelen.secondDigit + digit;
+		}
+		console.log(variabelen.secondDigit);
+		variabelen.calcHistory = variabelen.firstDigit + variabelen.operator + variabelen.secondDigit;
+		get('answer').innerHTML = variabelen.calcHistory;
 	}
-	get('answer').innerHTML = variables.answer;
-	console.log(variables.answer);
-	variables.firstDigit = variables.answer;
-	variables.secondDigit = 0;
-	variables.operator = 0;
+}
+	//Setting Operator
+function setOperator(operatorinput){
+	if (variabelen.operator == 0){
+		variabelen.operator = operatorinput;
+	}	else {
+		makeCalculation();
+		variabelen.operator = operatorinput;
+	}
+	console.log(variabelen.operator);
+	variabelen.calcHistory = variabelen.firstDigit + variabelen.operator;
+	get('answer').innerHTML = variabelen.calcHistory;
+}
+	//Adding decimals
+function dot() {
+	if (variabelen.operator == 0) {
+		variabelen.firstDigit = variabelen.firstDigit + ".";
+	variabelen.dot = true;
+	}	else {
+		variabelen.secondDigit = variabelen.secondDigit + ".";
+	variabelen.dot = true;
+	}
 }
 
+	//Make the Calculation
+function makeCalculation(){
+	variabelen.firstDigit = parseFloat(variabelen.firstDigit);
+	variabelen.secondDigit = parseFloat(variabelen.secondDigit);
+	console.log("First Digit: " + variabelen.firstDigit + " Operator selected: " + variabelen.operator + " Second Digit: " + variabelen.secondDigit);
+	if (variabelen.operator == '*') {
+		if (variabelen.dot == true) {
+			variabelen.answer = (variabelen.firstDigit *1000) * (variabelen.secondDigit *1000);
+			variabelen.answer = variabelen.answer /1000000;
+		}else {
+			variabelen.answer = variabelen.firstDigit * variabelen.secondDigit;
+		}
+	}else if (variabelen.operator == '/') {
+		if( variabelen.dot == true){
+			variabelen.answer = (variabelen.firstDigit * 1000) / (variabelen.secondDigit * 1000);
+			variabelen.answer = variabelen.answer / 1;
+		}else {
+			variabelen.answer = variabelen.firstDigit / variabelen.secondDigit;
+		}
+	}else if (variabelen.operator == '+') {
+		if(variabelen.dot == true){
+			variabelen.answer = (variabelen.firstDigit * 1000) + (variabelen.secondDigit * 1000);
+			variabelen.answer = variabelen.answer / 1000;
+		}	else {
+			variabelen.answer = variabelen.firstDigit + variabelen.secondDigit;
+		}
+	}else if (variabelen.operator == '-') {
+		if(variabelen.dot == true){
+			variabelen.answer = (variabelen.firstDigit * 1000) - (variabelen.secondDigit * 1000);
+			variabelen.answer = variabelen.answer / 1000;
+		}else {
+			variabelen.answer = variabelen.firstDigit - variabelen.secondDigit;
+		}
+	}
+	console.log(variabelen.answer);
+	get('answer').innerHTML = variabelen.answer;
+	variabelen.firstDigit = variabelen.answer;
+	variabelen.operator = 0;
+	variabelen.secondDigit = 0;
+}
 
-//test stuff
 function showVariables(){
-	console.log(variables);
+	console.log(variabelen);
 }
