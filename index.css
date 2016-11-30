@@ -35,6 +35,21 @@ button{
 	margin: 3.5px;
 }
 #answer {
+	text-align: center;
+	height: 18px;
+	font-size: 18px;
+	padding: 0;
+	margin: 0;
+}
+#addCalcHistory {
+	text-align: center;
+	height: 18px;
+	font-size: 18px;
+	padding: 0;
+	margin: 0;
+	color: rgba( 255, 255, 255, 0.4);
+}
+#screen {
 	width: 212px;
 	height: 36px;
 	background-color: rgb( 174, 54, 78);
@@ -43,9 +58,11 @@ button{
 	border-right: none;
 	border-left: none;
 	border-bottom: none;
+	border-radius: 5px;
 	position: relative;
-	top: 4px;
-	left: 20.5px;
+	top: 14px;
+	left: 20px;
+	display: inline-block;
 }
 #Calculator{
 	background-color: rgb( 217, 67, 98);
