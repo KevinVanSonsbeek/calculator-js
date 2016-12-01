@@ -31,7 +31,7 @@ function digits(digit){
 		if(variabelen.firstDigit == ""){
 			variabelen.firstDigit = digit;
 		}	else{
-			variabelen.firstDigit= variabelen.firstDigit + digit;
+			variabelen.firstDigit += digit;
 		}
 		variabelen.calcHistory = variabelen.firstDigit;
 		get('answer').innerHTML = variabelen.calcHistory;
@@ -39,7 +39,7 @@ function digits(digit){
 		if(variabelen.secondDigit == ""){
 			variabelen.secondDigit = digit;
 		}	else{
-			variabelen.secondDigit = variabelen.secondDigit + digit;
+			variabelen.secondDigit += digit;
 		}
 		variabelen.calcHistory = variabelen.firstDigit + variabelen.operator + variabelen.secondDigit;
 		get('answer').innerHTML = variabelen.calcHistory;
@@ -57,19 +57,19 @@ function setOperator(operatorinput){
 	}
 	variabelen.calcHistory = variabelen.firstDigit + variabelen.operator;
 	get('answer').innerHTML = variabelen.calcHistory;
-	variabelen.addCalcHistory = variabelen.addCalcHistory + operatorinput;
+	variabelen.addCalcHistory += operatorinput;
 	get('addCalcHistory').innerHTML = variabelen.addCalcHistory;
 }
 	//Adding decimals
 function dot() {
 	if (variabelen.operator == 0) {
-		variabelen.firstDigit = variabelen.firstDigit + ".";
+		variabelen.firstDigit += ".";
 	variabelen.dot = true;
 	}	else {
-		variabelen.secondDigit = variabelen.secondDigit + ".";
+		variabelen.secondDigit += ".";
 	variabelen.dot = true;
 	}
-	variabelen.addCalcHistory = variabelen.addCalcHistory + ".";
+	variabelen.addCalcHistory += ".";
 	get('addCalcHistory').innerHTML = variabelen.addCalcHistory;
 }
 	//Make the Calculation
@@ -138,6 +138,6 @@ function makeCalculation(){
 	variabelen.firstDigit = variabelen.answer;
 	variabelen.operator = 0;
 	variabelen.secondDigit = 0;
-	variabelen.addCalcHistory = variabelen.addCalcHistory + "=";
-	variabelen.addCalcHistory = variabelen.addCalcHistory + variabelen.answer;
+	variabelen.addCalcHistory += "=";
+	variabelen.addCalcHistory += variabelen.answer;
 }
